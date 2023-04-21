@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace DangTranThai_WebAPI
@@ -19,6 +20,9 @@ namespace DangTranThai_WebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.JsonFormatter.SupportedMediaTypes   // Thêm vào
+            .Add(new MediaTypeHeaderValue("text/html"));
         }
     }
 }
